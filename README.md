@@ -1,5 +1,5 @@
-# Castr GÜRŲ Library + Software Development Kit (SDK)
+# Castr GÜRŲ Lib+SDK
 
 ### https://castr.guru/lib
 
-For Farcaster builders.
+Building Farcaster frame applications, using a Type Safe library and SDK; designed to satisfy the needs of 1st-time Founders to high-performance Teams.

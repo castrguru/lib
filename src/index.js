@@ -1,8 +1,8 @@
 /*******************************************************************************
  *
- * Castr GÜRŲ Library + SDK Main Entry Module
+ * Castr Library + SDK Main Entry Module
  *
- * This file offers access to the entire suite of Castr GÜRŲ packages.
+ * This file offers access to the entire suite of Castr packages.
  *
  * Please visit https://castr.guru for more details.
  */
@@ -10,7 +10,7 @@
 /* Initialize event emitter. */
 import { EventEmitter } from 'events'
 
-/* Import Castr GÜRŲ classes */
+/* Import Castr classes */
 // NOTE: This allows us to export a (default) module.
 import { Address as _Address } from '@castrguru/address'
 import { App as _App } from '@castrguru/app'
@@ -32,7 +32,7 @@ import { Request as _Request } from '@castrguru/request'
 import { Utils as _Utils } from '@castrguru/utils'
 import { Wallet as _Wallet } from '@castrguru/wallet'
 
-/* Export (individual) Castr GÜRŲ classes */
+/* Export (individual) Castr classes */
 export const Address = _Address
 export const App = _App
 // export const Charts = _Charts
@@ -103,15 +103,15 @@ export { WalletStatus } from '@castrguru/wallet'
 /**
  * Nexa Main (default) Module Class
  *
- * Main class/module for the Castr GÜRŲ Library + Software Development Kit (SDK).
+ * Main class/module for the Castr Library + Software Development Kit (SDK).
  *
  * NOTE: This is a (default) module, so it DOES NOT require curly braces
  *       when importing into your application.
  */
-export default class Nexa extends EventEmitter {
+export default class Castr extends EventEmitter {
     constructor(_params) {
-        /* Initialize Castr GÜRŲ class. */
-        console.info('Initializing Castr GÜRŲ Library + SDK...')
+        /* Initialize Castr class. */
+        console.info('Initializing Castr Library + SDK...')
         // console.log(JSON.stringify(_params, null, 2))
         super()
 

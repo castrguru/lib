@@ -1,19 +1,27 @@
 {
   "name": "castrguru",
-  "version": "25.1.18",
+  "version": "25.1.23",
+  "description": "A comprehensive JavaScript Library + SDK for building Farcaster frame-based applications.",
   "license": "MIT",
-  "description": "A comprehensive JavaScript Library + SDK for building Farcaster applications on Node.js (back-end) and web browsers (front-end).",
-  "author": "GÜRŲS DAO",
-  "main": "index.js",
-  "type": "module",
+  "author": "GÜRŲS DAO contributors",
+  "homepage": "https://castr.guru/libs",
   "scripts": {
     "test": "mocha --timeout 3000"
   },
-  "repository": "https://github.com/avasdao/nexajs.git",
-  "dependencies": {
-    "@castrguru/ux": "25.1.18",
-    "events": "3.3.0"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/castrguru/lib.git"
   },
+  "keywords": [
+    "farcaster",
+    "frames",
+    "farcaster-frames",
+    "typescript"
+  ],
+  "main": "./src/index.js",
+  "type": "module",
+  "types": "./_types/index.d.ts",
+  "typings": "./_types/index.d.ts",
   "devDependencies": {
     "@rollup/plugin-commonjs": "26.0.1",
     "@rollup/plugin-inject": "5.0.5",
@@ -30,5 +38,13 @@
   "engines": {
     "npm": ">=9.0.0",
     "node": ">=21.0.0"
+  },
+  "exports": {
+    ".": {
+      "types": "./_types/index.d.ts",
+      "import": "./src/index.js",
+      "require": "./src/index.cjs"
+    },
+    "./package.json": "./package.json"
   }
 }

@@ -6,7 +6,23 @@
   "author": "GÜRŲS DAO contributors",
   "homepage": "https://castr.guru/libs",
   "scripts": {
-    "test": "mocha --timeout 3000"
+
+    "lint:check": "eslint --cache --ext .ts ./src",
+    "lint:fix": "eslint --cache --fix --ext .ts ./src",
+    "check": "yarn lint:check && yarn prettier:check",
+    "fix": "yarn lint:fix && yarn prettier:fix",
+    "clean": "rm -rf deno dist esm",
+    "build": "yarn run clean && npm run build:cjs && npm run build:esm && npm run build:deno",
+    "build:deno": "node ./deno-build.mjs && cp ./README.md ./deno/lib",
+    "build:esm": "rollup --config ./configs/rollup.config.js",
+    "build:cjs": "tsc -p ./configs/tsconfig.cjs.json",
+    "build:types": "tsc -p ./configs/tsconfig.types.json",
+    "build:test": "tsc -p ./configs/tsconfig.test.json",
+    "prebuild": "npm run clean",
+    "test": "mocha --timeout 3000",
+    "test:bun": "bun test src/",
+    "test:vitest": "npx vitest --config ./configs/vitest.config.ts",
+    "test:deno": "cd deno && deno test"
   },
   "repository": {
     "type": "git",
@@ -22,6 +38,7 @@
   "type": "module",
   "types": "./_types/index.d.ts",
   "typings": "./_types/index.d.ts",
+  "dependencies": {},
   "devDependencies": {
     "@rollup/plugin-commonjs": "26.0.1",
     "@rollup/plugin-inject": "5.0.5",

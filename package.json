@@ -3,30 +3,43 @@
   "version": "25.1.23",
   "description": "A comprehensive JavaScript Library + SDK for building Farcaster frame-based applications.",
   "license": "MIT",
-  "author": "GÜRŲS DAO contributors",
-  "homepage": "https://castr.guru/libs",
   "scripts": {
 
     "lint:check": "eslint --cache --ext .ts ./src",
     "lint:fix": "eslint --cache --fix --ext .ts ./src",
-    "check": "yarn lint:check && yarn prettier:check",
-    "fix": "yarn lint:fix && yarn prettier:fix",
+    "check": "npm lint:check && npm prettier:check",
+    "typecheck": "tsc --noEmit",
+    "fix": "npm lint:fix && npm prettier:fix",
     "clean": "rm -rf deno dist esm",
-    "build": "yarn run clean && npm run build:cjs && npm run build:esm && npm run build:deno",
+    "prebuild": "npm run clean",
+    "build": "npm run clean && npm run build:cjs && npm run build:esm && npm run build:deno",
     "build:deno": "node ./deno-build.mjs && cp ./README.md ./deno/lib",
     "build:esm": "rollup --config ./configs/rollup.config.js",
     "build:cjs": "tsc -p ./configs/tsconfig.cjs.json",
     "build:types": "tsc -p ./configs/tsconfig.types.json",
     "build:test": "tsc -p ./configs/tsconfig.test.json",
-    "prebuild": "npm run clean",
     "test": "mocha --timeout 3000",
     "test:bun": "bun test src/",
-    "test:vitest": "npx vitest --config ./configs/vitest.config.ts",
-    "test:deno": "cd deno && deno test"
+    "test:deno": "cd deno && deno test",
+    "test:vitest": "npx vitest --config ./configs/vitest.config.ts"
   },
+  "homepage": "https://castr.guru/libs",
+  "author": {
+    "name": "shomari.eth",
+    "url": "https://github.com/nyusternie"
+  },
+  "contributors": [
+    {
+      "name": "GÜRŲS DAO contributors",
+      "url": "https://github.com/castrguru"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/castrguru/lib.git"
+  },
+  "bugs": {
+    "url": "https://github.com/castrguru/lib/issues"
   },
   "keywords": [
     "farcaster",
@@ -34,10 +47,8 @@
     "farcaster-frames",
     "typescript"
   ],
-  "main": "./src/index.js",
-  "type": "module",
-  "types": "./_types/index.d.ts",
-  "typings": "./_types/index.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "dependencies": {},
   "devDependencies": {
     "@rollup/plugin-commonjs": "26.0.1",
